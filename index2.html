@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linear Algebra</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    <link rel="stylesheet2" href="./style.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
         onload="renderMathInElement(document.body);"></script>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .question { margin-bottom: 20px; }
-        .hidden { display: none; }
-    </style>
+        <script defer src = "script.js"></script>
 </head>
 <body>
     <h1>Linear Algebra Assignments</h1>
@@ -28,26 +25,5 @@
     <p id="result"></p>
     <p>Points: <span id="points">0</span></p>
     
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let points = localStorage.getItem("points") || 0;
-            document.getElementById("points").innerText = points;
-        });
-
-        function checkAnswer() {
-            let answer = document.getElementById("answer").value;
-            let correctAnswer = (2 * 4) - (3 * 1); // Determinant calculation
-            
-            if (parseInt(answer) === correctAnswer) {
-                let points = parseInt(localStorage.getItem("points")) || 0;
-                points += 10;
-                localStorage.setItem("points", points);
-                document.getElementById("points").innerText = points;
-                document.getElementById("result").innerText = "Correct! +10 points";
-            } else {
-                document.getElementById("result").innerText = "Incorrect. Try again.";
-            }
-        }
-    </script>
 </body>
 </html>
