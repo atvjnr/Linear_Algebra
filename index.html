@@ -1,1 +1,53 @@
-let see if it work
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Algebra</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .question { margin-bottom: 20px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Linear Algebra Assignments</h1>
+    <p>Solve the following question and earn points!</p>
+    
+    <div class="question">
+        <p>What is the determinant of the matrix?</p>
+        <p>\[ A = \begin{bmatrix} 2 & 3 \\ 1 & 4 \end{bmatrix} \]</p>
+        <input type="number" id="answer" placeholder="Your answer">
+        <button onclick="checkAnswer()">Submit</button>
+    </div>
+    
+    <p id="result"></p>
+    <p>Points: <span id="points">0</span></p>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let points = localStorage.getItem("points") || 0;
+            document.getElementById("points").innerText = points;
+        });
+
+        function checkAnswer() {
+            let answer = document.getElementById("answer").value;
+            let correctAnswer = (2 * 4) - (3 * 1); // Determinant calculation
+            
+            if (parseInt(answer) === correctAnswer) {
+                let points = parseInt(localStorage.getItem("points")) || 0;
+                points += 10;
+                localStorage.setItem("points", points);
+                document.getElementById("points").innerText = points;
+                document.getElementById("result").innerText = "Correct! +10 points";
+            } else {
+                document.getElementById("result").innerText = "Incorrect. Try again.";
+            }
+        }
+    </script>
+</body>
+</html>
